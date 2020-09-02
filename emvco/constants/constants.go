@@ -1,5 +1,7 @@
 package constants
 
+import "regexp"
+
 type DataObjectFormat string
 
 const (
@@ -10,6 +12,17 @@ const (
 	// S represents "String"
 	S DataObjectFormat = "S"
 )
+
+func (f DataObjectFormat) Validate(v string) bool {
+	if f == N {
+		return regexp.MustCompile("[0-9]+").Match([]byte(v))
+	} else if f == ANS {
+		return regexp.MustCompile("[0-9]+").Match([]byte(v))
+	} else if f == S {
+		return true
+	}
+	return false
+}
 
 type TipOrConvenienceIndicatorValue string
 

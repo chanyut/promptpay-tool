@@ -48,7 +48,7 @@ func (o TransactionAmount) WithAmountS(v string) TransactionAmount {
 	if len(v) > maxLength {
 		panic(fmt.Errorf("amount's length should not greater than %d", maxLength))
 	}
-	if _, err := strconv.Atoi(v); err != nil {
+	if _, err := strconv.ParseFloat(v, 64); err != nil {
 		panic(errors.Wrapf(err, "invalid value: %s", v))
 	}
 	o.amountAsString = v

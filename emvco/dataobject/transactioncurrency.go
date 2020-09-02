@@ -16,7 +16,7 @@ type TransactionCurrency struct {
 }
 
 func (TransactionCurrency) ID() string {
-	return "52"
+	return "53"
 }
 
 func (TransactionCurrency) Length() int {
